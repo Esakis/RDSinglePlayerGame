@@ -1,0 +1,23 @@
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+.vs/
+*.userprefs
+
+# Angular
+node_modules/
+dist/
+.angular/
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

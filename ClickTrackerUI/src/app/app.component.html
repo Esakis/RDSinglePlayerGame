@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="card">
+    <h1>{{ title }}</h1>
+    <div class="counter-display">
+      <h2>Total Clicks: {{ clickCount }}</h2>
+    </div>
+    <button 
+      class="click-button" 
+      (click)="onButtonClick()" 
+      [disabled]="loading">
+      {{ loading ? 'Saving...' : 'Click Me!' }}
+    </button>
+  </div>
+</div>
