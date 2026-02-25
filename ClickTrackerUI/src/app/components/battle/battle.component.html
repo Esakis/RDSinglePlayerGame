@@ -1,0 +1,42 @@
+<div class="battle-page">
+  <h2>&#x2694;&#xFE0F; Arena Walki</h2>
+
+  <div class="error-msg" *ngIf="error">{{ error }}</div>
+
+  <div class="battle-result" *ngIf="battleResult">
+    <div class="result-header" [class.victory]="battleResult.victory" [class.defeat]="!battleResult.victory">
+      <h3>{{ battleResult.victory ? 'ZWYCIĘSTWO!' : 'PORAŻKA!' }}</h3>
+    </div>
+    <div class="battle-text-box">
+      <pre>{{ battleResult.battleText }}</pre>
+    </div>
+    <div class="result-stats">
+      <span *ngIf="battleResult.victory">+{{ battleResult.experienceGained }} EXP</span>
+      <span *ngIf="battleResult.victory">+{{ battleResult.goldGained }} złota</span>
+      <span>Zadano: {{ battleResult.damageDealt }} dmg</span>
+      <span>Otrzymano: {{ battleResult.damageTaken }} dmg</span>
+    </div>
+    <div class="level-up" *ngIf="battleResult.leveledUp">
+      &#x2B50; NOWY POZIOM! Zdobyto 5 punktów statystyk!
+    </div>
+    <button class="btn-close" (click)="closeBattle()">Zamknij</button>
+  </div>
+
+  <div class="monsters-grid" *ngIf="!battleResult">
+    <div class="monster-card" *ngFor="let monster of monsters">
+      <div class="monster-header">
+        <h3>{{ monster.name }}</h3>
+        <span class="monster-level">Lvl {{ monster.level }}</span>
+      </div>
+      <p class="monster-desc">{{ monster.description }}</p>
+      <div class="monster-stats">
+        <span>HP: {{ monster.maxHp }}</span>
+        <span>EXP: {{ monster.experienceReward }}</span>
+        <span>Złoto: {{ monster.goldRewardMin }}-{{ monster.goldRewardMax }}</span>
+      </div>
+      <button class="btn-fight" (click)="fight(monster.id)" [disabled]="fighting">
+        {{ fighting ? 'Walka...' : 'Walcz!' }}
+      </button>
+    </div>
+  </div>
+</div>

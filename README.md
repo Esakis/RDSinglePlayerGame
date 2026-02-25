@@ -1,66 +1,86 @@
-# Click Tracker Application
+# Red Dragon - Gra RPG
 
-Full-stack application with .NET backend, Angular frontend, and MSSQL database for tracking button clicks.
+Klon tekstowej gry RPG Red Dragon. Full-stack: .NET 9 backend, Angular 16 frontend, MSSQL baza danych.
 
-## Project Structure
+## Struktura Projektu
 
-- **ClickTrackerAPI** - .NET 8 Web API backend
-- **ClickTrackerUI** - Angular 16 frontend
+- **ClickTrackerAPI** - .NET 9 Web API backend (API gry)
+- **ClickTrackerUI** - Angular 16 frontend (interfejs gry)
 
-## Prerequisites
+## Wymagania
 
-- .NET 8 SDK
-- Node.js and npm
-- SQL Server LocalDB (included with Visual Studio)
+- .NET 9 SDK
+- Node.js i npm
+- Angular CLI (`npm install -g @angular/cli`)
+- SQL Server LocalDB (dołączony z Visual Studio)
 
-## Database Setup
+## Baza Danych
 
-The application uses SQL Server LocalDB with the connection string:
+Aplikacja używa SQL Server LocalDB:
 ```
-Server=(localdb)\\mssqllocaldb;Database=ClickTrackerDB;Trusted_Connection=true;TrustServerCertificate=true;
+Server=(localdb)\\mssqllocaldb;Database=RedDragonDB;Trusted_Connection=true;TrustServerCertificate=true;
 ```
 
-The database is automatically created when the backend starts.
+Baza tworzy się automatycznie przy pierwszym uruchomieniu backendu wraz z danymi startowymi (potwory, przedmioty).
 
-## Running the Application
+## Uruchamianie
 
-### Backend (.NET API)
+### Najłatwiej - plik BAT
 
-1. Navigate to the backend folder:
-   ```
-   cd ClickTrackerAPI
-   ```
+```
+start-app.bat
+```
 
-2. Run the API:
-   ```
-   dotnet run
-   ```
+### Ręcznie
 
-The API will start on `http://localhost:5000`
+**Backend:**
+```
+cd ClickTrackerAPI
+dotnet run
+```
+API: `http://localhost:5069`
 
-### Frontend (Angular)
+**Frontend:**
+```
+cd ClickTrackerUI
+npm install
+ng serve
+```
+Gra: `http://localhost:4200`
 
-1. Navigate to the frontend folder:
-   ```
-   cd ClickTrackerUI
-   ```
+## Funkcje
 
-2. Start the development server:
-   ```
-   ng serve
-   ```
-
-The app will be available at `http://localhost:4200`
-
-## Features
-
-- Click tracking button
-- Real-time click counter
-- All clicks saved to MSSQL database
-- RESTful API endpoints
+- Rejestracja i logowanie postaci
+- Rasa: Człowiek (zrównoważone statystyki)
+- System walki z potworami (8 typów: od Szczura do Czerwonego Smoka)
+- System doświadczenia i poziomów
+- Przydzielanie punktów statystyk (Siła, Zręczność, Inteligencja, Wytrzymałość, Szczęście)
+- Sklep z bronią, zbrojami i miksturami (15 przedmiotów)
+- Ekwipunek - zakładanie broni/zbroi, używanie mikstur
+- Odpoczynek (regeneracja HP i Many)
+- Ranking bohaterów
 
 ## API Endpoints
 
-- `GET /api/clicks/count` - Get total click count
-- `POST /api/clicks` - Record a new click
-- `GET /api/clicks` - Get all click events
+### Auth
+- `POST /api/auth/register` - Rejestracja nowej postaci
+- `POST /api/auth/login` - Logowanie
+
+### Character
+- `GET /api/character/{id}` - Pobierz statystyki postaci
+- `POST /api/character/{id}/allocate-stat` - Przydziel punkty statystyk
+- `POST /api/character/{id}/rest` - Odpoczywaj
+- `GET /api/character/{id}/inventory` - Ekwipunek
+- `POST /api/character/{id}/equip/{itemId}` - Załóż przedmiot
+- `POST /api/character/{id}/use-potion/{itemId}` - Użyj mikstury
+- `GET /api/character/ranking` - Ranking
+
+### Battle
+- `GET /api/battle/monsters` - Lista potworów
+- `POST /api/battle/{charId}/fight/{monsterId}` - Walcz z potworem
+- `GET /api/battle/{charId}/log` - Historia walk
+
+### Shop
+- `GET /api/shop/items` - Przedmioty w sklepie
+- `POST /api/shop/{charId}/buy/{itemId}` - Kup przedmiot
+- `POST /api/shop/{charId}/sell/{charItemId}` - Sprzedaj przedmiot

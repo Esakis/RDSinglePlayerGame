@@ -1,0 +1,191 @@
+.battle-page h2 {
+  color: #dc143c;
+  margin-bottom: 1.5rem;
+}
+
+.error-msg {
+  color: #ff6b6b;
+  padding: 0.7rem;
+  background: rgba(255, 107, 107, 0.1);
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.monsters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.monster-card {
+  background: #1f0808;
+  border: 1px solid #3a0a0a;
+  border-radius: 10px;
+  padding: 1.2rem;
+  transition: all 0.2s;
+}
+
+.monster-card:hover {
+  border-color: #dc143c;
+  transform: translateY(-2px);
+}
+
+.monster-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.monster-header h3 {
+  color: #e0e0e0;
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.monster-level {
+  background: #dc143c;
+  color: #fff;
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.75rem;
+}
+
+.monster-desc {
+  color: #998888;
+  font-size: 0.85rem;
+  margin: 0 0 0.8rem;
+}
+
+.monster-stats {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.monster-stats span {
+  background: #0d0000;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  color: #c0a0a0;
+}
+
+.btn-fight {
+  width: 100%;
+  padding: 0.6rem;
+  background: linear-gradient(135deg, #dc143c, #8b0000);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.btn-fight:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgba(220, 20, 60, 0.4);
+}
+
+.btn-fight:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.battle-result {
+  background: #1f0808;
+  border: 1px solid #3a0a0a;
+  border-radius: 12px;
+  padding: 1.5rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.result-header {
+  text-align: center;
+  padding: 0.8rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.result-header.victory {
+  background: rgba(220, 20, 60, 0.12);
+}
+
+.result-header.victory h3 {
+  color: #ff8a8a;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.result-header.defeat {
+  background: rgba(255, 107, 107, 0.15);
+}
+
+.result-header.defeat h3 {
+  color: #ff6b6b;
+  margin: 0;
+  font-size: 1.4rem;
+}
+
+.battle-text-box {
+  background: #0d0000;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.battle-text-box pre {
+  color: #d0c0c0;
+  font-family: 'Consolas', 'Courier New', monospace;
+  font-size: 0.85rem;
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.result-stats {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.result-stats span {
+  background: #0d0000;
+  padding: 0.3rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  color: #c0a0a0;
+}
+
+.level-up {
+  text-align: center;
+  padding: 0.8rem;
+  background: rgba(249, 202, 36, 0.15);
+  border: 1px solid rgba(249, 202, 36, 0.3);
+  border-radius: 6px;
+  color: #f9ca24;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.btn-close {
+  width: 100%;
+  padding: 0.6rem;
+  background: #3a0a0a;
+  color: #c0a0a0;
+  border: 1px solid #1f0808;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.btn-close:hover {
+  background: #1f0808;
+  color: #e0e0e0;
+}

@@ -1,28 +1,28 @@
 @echo off
 echo ========================================
-echo   Click Tracker Application Launcher
+echo   Red Dragon - Gra RPG
 echo ========================================
 echo.
 
 echo Starting Backend (.NET API)...
-start "ClickTracker Backend" cmd /k "cd /d d:\GraWebowa\ClickTrackerAPI && dotnet run"
+start "RedDragon Backend" cmd /k "cd /d d:\GraWebowa\ClickTrackerAPI && dotnet run"
 
 echo Waiting for backend to initialize...
-timeout /t 5 /nobreak >nul
+timeout /t 8 /nobreak >nul
 
 echo.
 echo Starting Frontend (Angular)...
-start "ClickTracker Frontend" cmd /k "cd /d d:\GraWebowa\ClickTrackerUI && ng serve"
+start "RedDragon Frontend" cmd /k "cd /d d:\GraWebowa\ClickTrackerUI && ng serve"
 
 echo.
 echo ========================================
-echo   Applications are starting...
+echo   Red Dragon uruchamia sie...
 echo ========================================
 echo.
 echo Backend:  http://localhost:5069
 echo Frontend: http://localhost:4200
 echo.
-echo Press any key to open the application in your browser...
+echo Press any key to open the game in your browser...
 pause >nul
 
 start http://localhost:4200

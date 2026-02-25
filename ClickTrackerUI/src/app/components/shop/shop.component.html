@@ -1,0 +1,41 @@
+<div class="shop-page">
+  <h2>&#x1F3EA; Sklep</h2>
+  <p class="gold-info" *ngIf="character">Twoje złoto: <strong>{{ character.gold }}</strong></p>
+
+  <div class="filter-bar">
+    <button [class.active]="filter === 'all'" (click)="filter = 'all'">Wszystko</button>
+    <button [class.active]="filter === 'Weapon'" (click)="filter = 'Weapon'">Bronie</button>
+    <button [class.active]="filter === 'Armor'" (click)="filter = 'Armor'">Zbroje</button>
+    <button [class.active]="filter === 'Potion'" (click)="filter = 'Potion'">Mikstury</button>
+  </div>
+
+  <div class="message" *ngIf="message">{{ message }}</div>
+  <div class="error-msg" *ngIf="error">{{ error }}</div>
+
+  <div class="items-grid">
+    <div class="item-card" *ngFor="let item of filteredItems" [class.too-expensive]="character && item.buyPrice > character.gold">
+      <div class="item-header">
+        <h3>{{ item.name }}</h3>
+        <span class="item-type" [class]="item.type.toLowerCase()">{{ item.type === 'Weapon' ? 'Broń' : item.type === 'Armor' ? 'Zbroja' : 'Mikstura' }}</span>
+      </div>
+      <p class="item-desc">{{ item.description }}</p>
+      <div class="item-stats">
+        <span *ngIf="item.minDamage > 0">Dmg: {{ item.minDamage }}-{{ item.maxDamage }}</span>
+        <span *ngIf="item.defense > 0">Def: {{ item.defense }}</span>
+        <span *ngIf="item.bonusStrength > 0">+{{ item.bonusStrength }} Siła</span>
+        <span *ngIf="item.bonusDexterity > 0">+{{ item.bonusDexterity }} Zręcz.</span>
+        <span *ngIf="item.bonusIntelligence > 0">+{{ item.bonusIntelligence }} Int.</span>
+        <span *ngIf="item.bonusEndurance > 0">+{{ item.bonusEndurance }} Wyt.</span>
+        <span *ngIf="item.bonusHp > 0">+{{ item.bonusHp }} HP</span>
+        <span *ngIf="item.bonusMana > 0">+{{ item.bonusMana }} Mana</span>
+        <span class="req-level">Wymagany lvl: {{ item.requiredLevel }}</span>
+      </div>
+      <div class="item-footer">
+        <span class="price">{{ item.buyPrice }} złota</span>
+        <button class="btn-buy" (click)="buy(item.id)" [disabled]="!character || item.buyPrice > character.gold || item.requiredLevel > character.level">
+          Kup
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

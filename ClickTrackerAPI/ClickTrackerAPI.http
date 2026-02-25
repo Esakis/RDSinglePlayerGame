@@ -1,6 +1,0 @@
-@ClickTrackerAPI_HostAddress = http://localhost:5069
-
-GET {{ClickTrackerAPI_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

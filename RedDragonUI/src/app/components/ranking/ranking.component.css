@@ -1,0 +1,80 @@
+.ranking-page h2 {
+  color: #dc143c;
+  margin-bottom: 1.5rem;
+}
+
+.loading {
+  text-align: center;
+  color: #998888;
+  padding: 2rem;
+}
+
+.ranking-table {
+  background: #1f0808;
+  border: 1px solid #3a0a0a;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.ranking-header {
+  display: flex;
+  padding: 0.8rem 1rem;
+  background: #3a0a0a;
+  font-weight: bold;
+  color: #c0a0a0;
+  font-size: 0.85rem;
+}
+
+.ranking-row {
+  display: flex;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(15, 52, 96, 0.5);
+  transition: background 0.2s;
+}
+
+.ranking-row:hover {
+  background: rgba(220, 20, 60, 0.05);
+}
+
+.ranking-row:last-child {
+  border-bottom: none;
+}
+
+.ranking-row.top-3 {
+  background: rgba(249, 202, 36, 0.05);
+}
+
+.col-pos {
+  width: 50px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.col-name {
+  flex: 2;
+  color: #e0e0e0;
+}
+
+.col-race {
+  flex: 1;
+  color: #998888;
+}
+
+.col-level {
+  flex: 1;
+  color: #f9ca24;
+  font-weight: bold;
+  text-align: center;
+}
+
+.col-exp {
+  flex: 1;
+  color: #c0a0a0;
+  text-align: right;
+}
+
+.empty-ranking {
+  text-align: center;
+  color: #998888;
+  padding: 2rem;
+}
