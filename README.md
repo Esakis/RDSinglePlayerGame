@@ -84,3 +84,6 @@ Gra: `http://localhost:4200`
 - `GET /api/shop/items` - Przedmioty w sklepie
 - `POST /api/shop/{charId}/buy/{itemId}` - Kup przedmiot
 - `POST /api/shop/{charId}/sell/{charItemId}` - Sprzedaj przedmiot
+
+<img width="2520" height="1228" alt="image" src="https://github.com/user-attachments/assets/8e989efc-2e4a-4757-94f9-da3b71ad0d30" />
+
