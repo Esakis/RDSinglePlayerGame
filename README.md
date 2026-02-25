@@ -1,11 +1,11 @@
-# Red Dragon - Gra RPG
+# Red Dragon - Gra RPG Single Player
 
 Klon tekstowej gry RPG Red Dragon. Full-stack: .NET 9 backend, Angular 16 frontend, MSSQL baza danych.
 
 ## Struktura Projektu
 
-- **ClickTrackerAPI** - .NET 9 Web API backend (API gry)
-- **ClickTrackerUI** - Angular 16 frontend (interfejs gry)
+- **Red DragonAPI** - .NET 9 Web API backend (API gry)
+- **Red DragonUI** - Angular 16 frontend (interfejs gry)
 
 ## Wymagania
 
@@ -35,14 +35,14 @@ start-app.bat
 
 **Backend:**
 ```
-cd ClickTrackerAPI
+cd RedDragonAPI
 dotnet run
 ```
 API: `http://localhost:5069`
 
 **Frontend:**
 ```
-cd ClickTrackerUI
+cd RedDragonUI
 npm install
 ng serve
 ```
