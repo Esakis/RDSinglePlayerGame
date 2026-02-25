@@ -27,6 +27,15 @@
       </button>
     </form>
 
+    <div class="guest-login">
+      <div class="divider">
+        <span>lub</span>
+      </div>
+      <button type="button" class="btn-guest" (click)="loginAsGuest()" [disabled]="loading">
+        🎮 Zagraj jako Gość
+      </button>
+    </div>
+
     <div class="race-info" *ngIf="isRegister">
       <h3>Dostępna rasa: Człowiek</h3>
       <p>Zrównoważona rasa z równymi statystykami. Idealna dla początkujących bohaterów.</p>

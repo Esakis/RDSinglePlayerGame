@@ -5,14 +5,14 @@ echo ========================================
 echo.
 
 echo Starting Backend (.NET API)...
-start "RedDragon Backend" cmd /k "cd /d d:\GraWebowa\ClickTrackerAPI && dotnet run"
+start "RedDragon Backend" cmd /k "cd /d d:\GryWebowe\RDSinglePlayerGame\RedDragonAPI && dotnet run"
 
 echo Waiting for backend to initialize...
 timeout /t 8 /nobreak >nul
 
 echo.
 echo Starting Frontend (Angular)...
-start "RedDragon Frontend" cmd /k "cd /d d:\GraWebowa\ClickTrackerUI && ng serve"
+start "RedDragon Frontend" cmd /k "cd /d d:\GryWebowe\RDSinglePlayerGame\RedDragonUI && ng serve"
 
 echo.
 echo ========================================

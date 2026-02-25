@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { GameService } from '../../click.service';
+import { GameService } from '../../game.service';
 
 @Component({
   selector: 'app-login',
@@ -39,6 +39,21 @@ export class LoginComponent {
         } else {
           this.error = this.isRegister ? 'Błąd rejestracji.' : 'Nieprawidłowa nazwa lub hasło.';
         }
+      }
+    });
+  }
+
+  loginAsGuest(): void {
+    this.error = '';
+    this.loading = true;
+
+    this.gameService.loginAsGuest().subscribe({
+      next: () => {
+        this.router.navigate(['/dashboard']);
+      },
+      error: (err) => {
+        this.loading = false;
+        this.error = 'Błąd logowania jako gość.';
       }
     });
   }

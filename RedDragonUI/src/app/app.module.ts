@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { LoginComponent } from './components/login/login.component';
 import { StartComponent } from './components/start/start.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BattleComponent } from './components/battle/battle.component';
@@ -13,7 +14,8 @@ import { InventoryComponent } from './components/inventory/inventory.component';
 import { RankingComponent } from './components/ranking/ranking.component';
 
 const routes: Routes = [
-  { path: '', component: StartComponent },
+  { path: '', component: LoginComponent },
+  { path: 'start', component: StartComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'battle', component: BattleComponent },
   { path: 'shop', component: ShopComponent },
@@ -24,6 +26,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
     StartComponent,
     DashboardComponent,
     BattleComponent,

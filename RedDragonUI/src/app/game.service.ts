@@ -89,18 +89,47 @@ export interface BattleLogDto {
 })
 export class GameService {
   private apiUrl = 'http://localhost:5069/api';
-  private charId = 1;
+  private charId = 0;
   private characterSubject = new BehaviorSubject<CharacterDto | null>(null);
   character$ = this.characterSubject.asObservable();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    const savedCharId = localStorage.getItem('charId');
+    if (savedCharId) {
+      this.charId = parseInt(savedCharId, 10);
+      this.refreshCharacter().subscribe();
+    }
+  }
 
   get currentCharacter(): CharacterDto | null {
     return this.characterSubject.value;
   }
 
   private setCharacter(c: CharacterDto): void {
+    this.charId = c.id;
+    localStorage.setItem('charId', c.id.toString());
     this.characterSubject.next(c);
+  }
+
+  register(name: string, password: string): Observable<CharacterDto> {
+    return this.http.post<CharacterDto>(`${this.apiUrl}/auth/register`, { name, password })
+      .pipe(tap(c => this.setCharacter(c)));
+  }
+
+  login(name: string, password: string): Observable<CharacterDto> {
+    return this.http.post<CharacterDto>(`${this.apiUrl}/auth/login`, { name, password })
+      .pipe(tap(c => this.setCharacter(c)));
+  }
+
+  loginAsGuest(): Observable<CharacterDto> {
+    return this.http.post<CharacterDto>(`${this.apiUrl}/auth/guest`, {})
+      .pipe(tap(c => this.setCharacter(c)));
+  }
+
+  logout(): void {
+    this.charId = 0;
+    localStorage.removeItem('charId');
+    this.characterSubject.next(null);
   }
 
   refreshCharacter(): Observable<CharacterDto> {
